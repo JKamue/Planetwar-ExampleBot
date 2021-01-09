@@ -18,6 +18,7 @@ namespace ExampleBot
         private static void BotLoop(PlanetwarApi.PlanetwarApi api, string username, Round roundInfo, Map map,
             List<Event> events, List<Player> players, List<Sent> sent)
         {
+
             // Liste eigener Planeten erstellen
             var myPlanets = new List<Tile>();
             foreach (var tile in map.tiles)
@@ -57,7 +58,6 @@ namespace ExampleBot
                     continue;
 
                 var target = ratings[0].tile;
-
                 api.MoveShips(myPlanet.location, target.location, myPlanet.ships);
                 Console.WriteLine($"Ich greife an: {target.location.X} | {target.location.Y}");
             }
